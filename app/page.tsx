@@ -35,14 +35,17 @@ export default function Home() {
   const [x, setX] = useState(0);
   const [y, setY] = useState(0);
 
-  useEffect(() => {}, []);
+  useEffect(() => {}, [x, y]);
 
-  const buttonHandler = () => {
+  const generateHandler = () => {
     const newMaze = new Maze(5, 5); // Create a new maze instance
     newMaze.genMaze(); // Generate a new maze
     setMyMaze(newMaze); // Update the state with the new maze
   };
-
+  const buttonHandler = (x: number, y: number) => {
+    setX(x);
+    setY(y);
+  };
   return (
     <div
       style={{
@@ -64,6 +67,7 @@ export default function Home() {
             <div key={index} style={{ display: "flex" }}>
               {row.map((value, vindex) => (
                 <Button
+                  onClick={() => buttonHandler(index, vindex)}
                   key={vindex}
                   m="5"
                   style={{
@@ -109,7 +113,7 @@ export default function Home() {
               margin: "10px",
             }}
           >
-            <Button onClick={buttonHandler}>Generate new maze</Button>
+            <Button onClick={generateHandler}>Generate new maze</Button>
             <Alert
               variant="light"
               color="orange"
