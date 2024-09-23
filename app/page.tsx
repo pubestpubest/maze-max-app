@@ -35,7 +35,7 @@ export default function Home() {
     newMaze.genMaze(); // Generate a new maze
     setMyMaze(newMaze); // Update the state with the new maze
   };
-  const buttonHandler = (y: number, x: number) => {
+  const buttonHandler = (x: number, y: number) => {
     setX(x);
     setY(y);
   };
@@ -61,16 +61,16 @@ export default function Home() {
         }}
       >
         <div>
-          {myMaze.maze.map((row, index) => (
-            <div key={index} style={{ display: "flex" }}>
-              {row.map((value, vindex) => (
+          {myMaze.maze.map((row, rows) => (
+            <div key={rows} style={{ display: "flex" }}>
+              {row.map((value, index) => (
                 <Button
-                  onClick={() => buttonHandler(index, vindex)}
-                  key={vindex}
+                  onClick={() => buttonHandler(index, rows)}
+                  key={index}
                   m="5"
                   style={{
                     backgroundColor:
-                      index == x && vindex == y ? "#cc5de8" : getColor(value),
+                      rows == y && index == x ? "#cc5de8" : getColor(value),
                     color: getFontColor(value),
                     width: 50,
                     height: 50,
