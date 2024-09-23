@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { Alert, Button, Fieldset, TextInput } from "@mantine/core";
+import { Alert, Button, Fieldset, TextInput, Title } from "@mantine/core";
 import Maze from "./Maze";
 
 const myColor: string[] = [
@@ -43,11 +43,16 @@ export default function Home() {
     <div
       style={{
         display: "flex",
+        flexDirection: "column",
         justifyContent: "center", // Horizontally center
         alignItems: "center", // Vertically center
         height: "100vh", // Full viewport height
+        backgroundColor: "var(--mantine-color-yellow-light)",
       }}
     >
+      <Title order={1} style={{ margin: 10 }}>
+        Maze Score Tile
+      </Title>
       <div
         style={{
           display: "inline-flex",
