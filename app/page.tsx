@@ -1,13 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import {
-  Alert,
-  Button,
-  Container,
-  Fieldset,
-  Flex,
-  TextInput,
-} from "@mantine/core";
+import { Alert, Button, Fieldset, TextInput } from "@mantine/core";
 import Maze from "./Maze";
 
 const myColor: string[] = [
