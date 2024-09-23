@@ -35,7 +35,7 @@ export default function Home() {
     newMaze.genMaze(); // Generate a new maze
     setMyMaze(newMaze); // Update the state with the new maze
   };
-  const buttonHandler = (x: number, y: number) => {
+  const buttonHandler = (y: number, x: number) => {
     setX(x);
     setY(y);
   };
